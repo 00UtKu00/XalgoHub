@@ -54,7 +54,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--text-primary);min-
 /* ===== FORM ===== */
 .form-group{margin-bottom:14px}
 .form-label{display:block;font-size:0.8rem;font-weight:500;color:var(--text-secondary);margin-bottom:6px}
-.form-input,.form-select,.form-textarea{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text-primary);font-family:var(--font);font-size:0.9rem;padding:10px 14px;transition:var(--transition);outline:none}
+.form-input,.form-select,.form-textarea{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text-primary);font-family:var(--font);font-size:0.9rem;padding:10px 14px;transition:var(--transition);outline:none;position:relative;z-index:2}
+.form-input{cursor:text!important;min-height:42px!important;pointer-events:auto!important;-webkit-user-select:text!important;user-select:text!important}
 .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--x-blue);box-shadow:0 0 0 3px var(--x-blue-dim),0 0 12px var(--x-blue-glow)}
 .form-textarea{resize:vertical;min-height:120px;line-height:1.6}
 .form-select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2371767b' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
