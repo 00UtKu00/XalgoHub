@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XalgoHub — X Algorithm Simulator | Free, No API Key</title>
+<meta name="description" content="XalgoHub simulates the real X (Twitter) recommendation algorithm. Phoenix ML scoring, WeightedScorer, pre-filters, live account data. 100% free, no login.">
+<meta name="keywords" content="X algorithm simulator, Twitter algorithm, Phoenix scorer, weighted scorer, VQV, post optimizer, reach predictor, engagement calculator, xalgohub">
+<meta name="author" content="XalgoHub">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://xalgohub.com/">
+<meta property="og:title" content="XalgoHub — Free X Algorithm Simulator"><meta property="og:description" content="Simulate the X recommendation pipeline. Phoenix ML + WeightedScorer + Pre-filters. Real account data, no API key.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://xalgohub.com/"><meta property="og:site_name" content="XalgoHub">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="XalgoHub — X Algorithm Simulator"><meta name="twitter:description" content="Real X pipeline simulation. Free, no login.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"XalgoHub","description":"Free X (Twitter) Algorithm Simulator built from leaked source code. Phoenix ML, WeightedScorer, pre-filters.","applicationCategory":"Social Media Analytics","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"XalgoHub"}}</script>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo" onclick="showPage('landing')" title="XalgoHub"><svg class="logo-svg" viewBox="0 0 40 40" width="26" height="26"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1d9bf0"/><stop offset="100%" stop-color="#a855f7"/></linearGradient></defs><rect x="3" y="3" width="34" height="34" rx="9" fill="none" stroke="url(#g1)" stroke-width="2"/><rect x="8" y="10" width="4" height="14" rx="2" fill="url(#g1)" opacity="0.55"/><rect x="16" y="7" width="4" height="20" rx="2" fill="url(#g1)"/><rect x="24" y="12" width="4" height="10" rx="2" fill="url(#g1)" opacity="0.55"/><line x1="10" y1="26" x2="30" y2="10" stroke="#1d9bf0" stroke-width="3" stroke-linecap="round"/><circle cx="28" cy="11" r="3.2" fill="url(#g1)"/></svg><span class="logo-text"><span class="logo-bold">Xalgo</span>Hub</span></div>
+  <nav class="nav">
+    <button class="nav-btn" data-page="landing" onclick="showPage('landing',event)">Home</button>
+    <button class="nav-btn active" data-page="dashboard" onclick="showPage('dashboard',event)">Dashboard</button>
+    <button class="nav-btn" data-page="analyzer" onclick="showPage('analyzer',event)">Analyzer</button>
+  </nav>
+</header>
+
+<div class="app-container">
+
+<!-- ================================================================ -->
+<!--  LANDING PAGE                                                     -->
+<!-- ================================================================ -->
+<div id="page-landing" class="page active">
+
+  <!-- HERO -->
+  <section class="landing-hero">
+    <canvas id="particleCanvas" class="particle-canvas"></canvas>
+    <div class="hero-grid-bg"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow reveal"><span class="eyebrow-line"></span>OPEN SOURCE INTELLIGENCE</div>
+      <h1 class="hero-title reveal">Decode the<br><span class="hero-highlight">X Algorithm</span></h1>
+      <p class="hero-desc reveal">A deterministic simulator built from the leaked X recommendation pipeline. Enter any @username, compose a post, and watch our engine run it through Phoenix action predictions, the WeightedScorer, author diversity decay, and visibility pre-filters — just like the real system.</p>
+      <div class="hero-trust reveal">
+        <div class="trust-item"><svg viewBox="0 0 16 16" width="14" height="14"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><polyline points="5,8 7,10 11,6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> No Login</div>
+        <div class="trust-item"><svg viewBox="0 0 16 16" width="14" height="14"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><polyline points="5,8 7,10 11,6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> No API Key</div>
+        <div class="trust-item"><svg viewBox="0 0 16 16" width="14" height="14"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><polyline points="5,8 7,10 11,6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> No Credit Card</div>
+        <div class="trust-item"><svg viewBox="0 0 16 16" width="14" height="14"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><polyline points="5,8 7,10 11,6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> 100% Free</div>
+        <div class="trust-item"><svg viewBox="0 0 16 16" width="14" height="14"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><polyline points="5,8 7,10 11,6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> No Data Stored</div>
+      </div>
+      <div class="hero-actions reveal">
+        <button class="btn-hero-primary" onclick="showPage('dashboard',event)">Open Simulator ↗</button>
+        <button class="btn-hero-secondary" onclick="document.getElementById('landing-features').scrollIntoView({behavior:'smooth'})">Learn More ↓</button>
+      </div>
+      <div class="hero-meta reveal">
+        <div class="hero-stat"><strong>19</strong><span>Action Signals</span></div>
+        <div class="hero-stat"><strong>70+</strong><span>Topic Categories</span></div>
+        <div class="hero-stat"><strong>0</strong><span>API Keys Needed</span></div>
+        <div class="hero-stat"><strong>100%</strong><span>Free Forever</span></div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint"><span>SCROLL</span><div class="scroll-line"></div></div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="landing-features" class="landing-section">
+    <div class="section-header reveal"><span class="section-eyebrow">PIPELINE COMPONENTS</span><h2 class="section-heading">How the <em>Simulation</em> Works</h2><p class="section-sub">Every component mirrors a real module from the X recommendation source code.</p></div>
+    <div class="features-grid">
+      <div class="feature-card reveal"><div class="feature-num">01</div><div class="feature-icon-wrap"><svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="currentColor"/></svg></div><h3 class="feature-title">Phoenix ML Predictions</h3><p class="feature-desc">19 distinct action probability predictions per post. Real X weights: Reply 54×, Retweet 20×, VQV 40×, Quote 20×, Report −200×. From <code>weighted_scorer.rs</code> and <code>phoenix_scorer.rs</code>.</p></div>
+      <div class="feature-card reveal"><div class="feature-num">02</div><div class="feature-icon-wrap"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="3" y="3" width="18" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="8" x2="17" y2="8" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="12" x2="14" y2="12" stroke="currentColor" stroke-width="1"/><line x1="7" y1="16" x2="10" y2="16" stroke="currentColor" stroke-width="1"/></svg></div><h3 class="feature-title">Visibility Filtering Engine</h3><p class="feature-desc">Simulates X's VF pipeline: link penalty (−20×), spam detection (−32×), brand safety (−64×), profanity scanning (50+ TR/EN words), and spam pattern matching. From <code>vf_filter.rs</code> and safety classifiers.</p></div>
+      <div class="feature-card reveal"><div class="feature-num">03</div><div class="feature-icon-wrap"><svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="10" r="2" fill="currentColor" opacity="0.5"/><circle cx="16" cy="10" r="2" fill="currentColor"/><circle cx="12" cy="16" r="2" fill="currentColor" opacity="0.3"/></svg></div><h3 class="feature-title">Network & Diversity Factors</h3><p class="feature-desc">Out-of-Network penalty (×0.7 from <code>oon_scorer.rs</code>), Author Diversity decay (×0.6^n from <code>author_diversity_scorer.rs</code>), In-Network boost for followed accounts. Same formulas as the production X pipeline.</p></div>
+      <div class="feature-card reveal"><div class="feature-num">04</div><div class="feature-icon-wrap"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="4" y="5" width="16" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="9,8 16,12 9,16" fill="currentColor"/></svg></div><h3 class="feature-title">VQV & Media Intelligence</h3><p class="feature-desc">Real X rule from <code>tweet_type_metrics</code>: videos ≤10 seconds get ZERO video_quality_view weight. Three duration buckets with distinct dwell bonuses. Photo expand (2×) for image posts.</p></div>
+      <div class="feature-card reveal"><div class="feature-num">05</div><div class="feature-icon-wrap"><svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 6v6l4 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><h3 class="feature-title">Timing & Age Decay</h3><p class="feature-desc">Engagement pool multipliers: weekday morning ×1.20 peak, night ×0.50 trough. Post age decay from <code>engagement_counts_hydrator.rs</code> cache TTL: fresh <30min ×1.15, stale >24hr ×0.25.</p></div>
+      <div class="feature-card reveal"><div class="feature-num">06</div><div class="feature-icon-wrap"><svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="2" fill="currentColor"/><circle cx="12" cy="12" r="6" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="0.5" stroke-dasharray="3 3"/></svg></div><h3 class="feature-title">Real-Time X Profile Data</h3><p class="feature-desc">Live follower counts, following, account age, and verification status from X's public pages. No OAuth, no tokens. 7 follower tiers with power-law reach rates calibrated to real X benchmarks.</p></div>
+    </div>
+  </section>
+
+  <!-- STATS BANNER -->
+  <section class="stats-banner reveal">
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-value">6</div><div class="stat-label">Retrieval Sources</div><div class="stat-desc">Thunder, TweetMixer, Phoenix, Topics, MOE, Cache</div></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item"><div class="stat-value">19</div><div class="stat-label">Phoenix Signals</div><div class="stat-desc">Every action probability from the real pipeline</div></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item"><div class="stat-value">70+</div><div class="stat-label">Topic Categories</div><div class="stat-desc">From X's topic_ids_filter.rs taxonomy</div></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item"><div class="stat-value">7</div><div class="stat-label">Follower Tiers</div><div class="stat-desc">Nano to Elite, each with distinct reach models</div></div>
+    </div>
+  </section>
+
+  <!-- PIPELINE -->
+  <section class="landing-section">
+    <div class="section-header reveal"><span class="section-eyebrow">THE PIPELINE</span><h2 class="section-heading">From <em>Candidate</em> to Score</h2><p class="section-sub">The exact 7-stage flow that mirrors X's recommendation architecture.</p></div>
+    <div class="pipeline-horizontal reveal">
+      <div class="pipe-card"><div class="pipe-num">1</div><strong>Retrieval</strong><span>6 sources pull candidates</span></div>
+      <div class="pipe-connector"><div class="pipe-dot"></div><div class="pipe-line"></div><div class="pipe-dot"></div></div>
+      <div class="pipe-card"><div class="pipe-num">2</div><strong>Hydration</strong><span>Enrich with engagement, video, language</span></div>
+      <div class="pipe-connector"><div class="pipe-dot"></div><div class="pipe-line"></div><div class="pipe-dot"></div></div>
+      <div class="pipe-card"><div class="pipe-num">3</div><strong>Phoenix ML</strong><span>19 action probabilities per post</span></div>
+      <div class="pipe-connector"><div class="pipe-dot"></div><div class="pipe-line"></div><div class="pipe-dot"></div></div>
+      <div class="pipe-card"><div class="pipe-num">4</div><strong>WeightedScorer</strong><span>Sum(prob × weight) + diversity</span></div>
+      <div class="pipe-connector"><div class="pipe-dot"></div><div class="pipe-line"></div><div class="pipe-dot"></div></div>
+      <div class="pipe-card"><div class="pipe-num">5</div><strong>Pre-Filters</strong><span>Spam, safety, link, brand safety</span></div>
+      <div class="pipe-connector"><div class="pipe-dot"></div><div class="pipe-line"></div><div class="pipe-dot"></div></div>
+      <div class="pipe-card"><div class="pipe-num">6</div><strong>Selection</strong><span>Top-K sort + author diversity</span></div>
+      <div class="pipe-connector"><div class="pipe-dot"></div><div class="pipe-line"></div><div class="pipe-dot"></div></div>
+      <div class="pipe-card highlight"><div class="pipe-num">7</div><strong>Your Score</strong><span>0–100 + estimated impressions</span></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="landing-section">
+    <div class="section-header reveal"><span class="section-eyebrow">FAQ</span><h2 class="section-heading">Common <em>Questions</em></h2></div>
+    <div class="faq-grid reveal">
+      <div class="faq-card"><h4>Is this really how X works?</h4><p>The architecture is taken directly from the leaked X recommendation pipeline. Phoenix ML predictions → WeightedScorer → Author Diversity → Pre-Filters → Selection is the exact flow described in the source. The numerical weights (Reply 54×, VQV 40×, etc.) are verified against the codebase.</p></div>
+      <div class="faq-card"><h4>Why can't I use videos under 10 seconds?</h4><p>That's a real X rule from <code>tweet_type_metrics_hydrator.rs</code>. The VQV (Video Quality View) weight — the single largest positive signal at 40× — only activates for videos above the minimum duration threshold. We mirror this rule exactly.</p></div>
+      <div class="faq-card"><h4>What does "OON" mean?</h4><p>Out-of-Network. From <code>oon_scorer.rs</code>: posts from accounts you don't follow get a 0.7× score multiplier. This is why following count and follower ratio matter so much for reach.</p></div>
+      <div class="faq-card"><h4>Is my data stored?</h4><p>Nothing is saved, logged, or sent anywhere. The X profile data is scraped from public pages in real-time. All algorithm computation runs in your browser. No cookies, no tracking, no database.</p></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section reveal">
+    <div class="cta-glow"></div>
+    <h2 class="cta-heading">Ready to decode the <em>algorithm</em>?</h2>
+    <p class="cta-sub">No sign-up. No API key. Enter a username and start simulating.</p>
+    <button class="btn-hero-primary pulse-glow" onclick="showPage('dashboard',event)" style="font-size:1.05rem;padding:16px 48px">Open Dashboard ↗</button>
+  </section>
+
+  <footer class="site-footer">
+    <span class="footer-text">Powered by</span> <a href="https://izeo.app" target="_blank" rel="noopener" class="footer-link">izeo.app</a>
+    <span class="footer-sep">—</span> <span class="footer-text">X Algorithm intelligence for creators</span>
+    <span class="footer-sep">—</span> <span class="footer-text">Not affiliated with X Corp.</span>
+  </footer>
+</div>
+
+<!-- ================================================================ -->
+<!--  DASHBOARD                                                        -->
+<!-- ================================================================ -->
+<div id="page-dashboard" class="page">
+  <div class="dash-header reveal"><span class="section-eyebrow">SIMULATOR</span><h2 class="section-heading">X Pipeline <em>Dashboard</em></h2></div>
+  <div id="dashLayout" class="dash-layout">
+    <div class="dash-inputs">
+      <!-- Account Lookup Card -->
+      <div class="card card-modern" style="margin-bottom:12px">
+        <div class="card-title-modern"><svg viewBox="0 0 20 20" width="14" height="14"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="7" cy="8" r="2" fill="currentColor"/><path d="M4 17c0-3 3-5 6-5s6 2 6 5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> ACCOUNT LOOKUP</div>
+        <div class="form-group"><label class="form-label">@Username</label><div style="display:flex;gap:8px"><input id="username" class="form-input" placeholder="Enter X username" value="" style="flex:1" onkeydown="if(event.key==='Enter')lookupAccount()"><button class="btn-secondary" onclick="lookupAccount()">Lookup</button></div><div id="lookupStatus" class="status-line"></div></div>
+        <div id="accountSummary" class="account-summary locked"><div class="account-empty">Enter @username and click Lookup to fetch real X data.</div></div>
+      </div>
+
+      <!-- Post Input Card -->
+      <div class="card card-modern" style="margin-bottom:12px">
+        <div class="card-title-modern"><svg viewBox="0 0 20 20" width="14" height="14"><path d="M3 5h14v10H3z" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="6" y1="9" x2="14" y2="9" stroke="currentColor" stroke-width="1"/><line x1="6" y1="12" x2="11" y2="12" stroke="currentColor" stroke-width="1"/></svg> POST INPUT</div>
+        <div class="form-group"><textarea id="tweetText" class="form-textarea form-textarea-modern" placeholder="Write your post... (Ctrl+Enter to simulate)" oninput="updateCharCount()"></textarea><div id="charCounter" class="char-counter">0 / 280</div></div>
+        <div class="form-row">
+          <div class="form-group" style="flex:1"><label class="form-label">Media</label><div class="chip-group"><button class="chip active" onclick="selectChip(this)">Text</button><button class="chip" onclick="selectChip(this)">Photo</button><button class="chip" onclick="selectChip(this)">Video</button><button class="chip" onclick="selectChip(this)">GIF</button><button class="chip" onclick="selectChip(this)">Poll</button></div></div>
+          <div class="form-group" style="flex:1"><label class="form-label">Audience</label><select id="targetAudience" class="form-select form-select-sm"><option value="general">General</option><option value="devs">Devs & Tech</option><option value="crypto">Crypto & Web3</option><option value="business">Business</option><option value="creators">Creators</option><option value="news">News & Politics</option><option value="academic">Academic</option><option value="gaming">Gaming</option></select></div>
+        </div>
+        <div id="videoOptions" class="form-group" style="display:none"><label class="form-label">Video Duration <span style="color:var(--danger);font-size:0.7rem">VQV eligibility rule applies</span></label><div class="chip-group"><button class="chip active" onclick="selectVideoChip(this,'medium')">10-60s (VQV)</button><button class="chip" onclick="selectVideoChip(this,'short')">&le;10s (NO VQV)</button><button class="chip" onclick="selectVideoChip(this,'long')">>60s (VQV)</button></div><input type="hidden" id="videoDuration" value="medium"></div>
+        <div class="form-group" style="margin-top:8px"><label class="form-label">Timing & Post Age</label><div class="select-row"><select id="postDay" class="form-select form-select-sm"><option value="weekday">Weekday</option><option value="weekend">Weekend</option></select><select id="postHour" class="form-select form-select-sm"><option value="morning">Morning 6A-12P</option><option value="afternoon">Afternoon 12-6P</option><option value="evening">Evening 6P-12A</option><option value="night">Night 12A-6A</option></select><select id="postTimezone" class="form-select form-select-sm"><option value="-8">UTC-8</option><option value="-5">UTC-5</option><option value="0">UTC+0</option><option value="1">UTC+1</option><option value="3" selected>UTC+3</option><option value="5.5">UTC+5:30</option><option value="8">UTC+8</option><option value="9">UTC+9</option></select><select id="postAge" class="form-select form-select-sm"><option value="fresh">Fresh <30m</option><option value="recent" selected>Recent 30m-6h</option><option value="decaying">Decay 6-24h</option><option value="stale">Stale >24h</option></select></div></div>
+      </div>
+
+      <!-- Scoring Card -->
+      <div class="card card-modern" style="margin-bottom:12px">
+        <div class="card-title-modern"><svg viewBox="0 0 20 20" width="14" height="14"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v4l3 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> PIPELINE SCORING</div>
+        <div id="algoPrediction"><div class="empty-state-modern"><div class="empty-icon-ring">..</div><p>Look up an account, write a post, then simulate.</p></div></div>
+        <div class="btn-row"><button id="simulateButton" class="btn-primary btn-primary-modern" onclick="runSimulation()" disabled>RUN SIMULATION</button><button class="btn-secondary" onclick="resetDashboard()">Reset</button></div>
+        <div class="helper-text" style="text-align:center;margin-top:8px">Ctrl+Enter to run</div>
+      </div>
+    </div>
+
+    <!-- Results Panel -->
+    <div id="resultsPanel" class="results-panel dash-results">
+      <div class="card card-modern" style="margin-bottom:12px">
+        <div class="card-title-modern"><svg viewBox="0 0 20 20" width="14" height="14"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="10" r="3" fill="currentColor" opacity="0.4"/></svg> SIMULATION SCORE</div>
+        <div class="gauge-container"><svg class="gauge-svg" viewBox="0 0 200 200"><circle class="gauge-bg" cx="100" cy="100" r="80" transform="rotate(-90 100 100)"/><circle id="gaugeFill" class="gauge-fill" cx="100" cy="100" r="80" transform="rotate(-90 100 100)" stroke-dasharray="502.65" stroke-dashoffset="502.65" stroke="var(--x-blue)"/><text id="gaugeScore" class="gauge-text" x="100" y="95">--</text><text class="gauge-label" x="100" y="125">SIM SCORE</text></svg></div>
+        <div class="reach-display"><div id="reachNumber" class="reach-number">--</div><div class="reach-label">ESTIMATED REACH (IMPRESSIONS)</div></div>
+      </div>
+      <div class="card card-modern" style="margin-bottom:12px"><div class="card-title-modern"><svg viewBox="0 0 20 20" width="14" height="14"><line x1="3" y1="5" x2="17" y2="5" stroke="currentColor" stroke-width="1.5"/><line x1="3" y1="10" x2="14" y2="10" stroke="currentColor" stroke-width="1.5"/><line x1="3" y1="15" x2="10" y2="15" stroke="currentColor" stroke-width="1.5"/></svg> X ACTION SIGNALS</div><div id="reportCard"></div></div>
+      <div class="card card-modern pixel-musk-panel"><div class="card-title-modern"><svg viewBox="0 0 20 20" width="14" height="14"><rect x="3" y="3" width="14" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="6" y="6" width="3" height="3" fill="currentColor" opacity="0.7"/><rect x="11" y="6" width="3" height="3" fill="currentColor" opacity="0.7"/><rect x="8" y="11" width="4" height="3" fill="currentColor" opacity="0.5"/></svg> PIXEL MUSK</div><div class="pixel-musk-wrap"><canvas id="muskPortraitCanvas" width="420" height="420"></canvas></div><div id="muskPortraitScore" class="pixel-musk-score">Score: --</div><div id="muskPortraitMood" class="pixel-musk-mood">Mood: idle</div><div class="pixel-musk-note">Higher score = happier Musk.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================ -->
+<!--  ANALYZER                                                         -->
+<!-- ================================================================ -->
+<div id="page-analyzer" class="page">
+  <div class="dash-header reveal"><span class="section-eyebrow">CONTENT LAB</span><h2 class="section-heading">Post <em>Analyzer</em></h2><p class="section-sub">Live detection of profanity, spam patterns, links, sentiment, and X pipeline risks as you type.</p></div>
+  <div class="analyzer-grid">
+    <div class="card card-modern">
+      <div class="card-title-modern"><svg viewBox="0 0 20 20" width="14" height="14"><rect x="2" y="3" width="16" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="5" y1="7" x2="15" y2="7" stroke="currentColor" stroke-width="1"/><line x1="5" y1="10" x2="12" y2="10" stroke="currentColor" stroke-width="1"/></svg> CONTENT INPUT</div>
+      <textarea id="analyzerText" class="form-textarea form-textarea-modern" style="min-height:220px" placeholder="Paste any post to analyze in real-time...&#10;&#10;Detects: profanity (TR+EN), spam patterns, external links, hashtag overload, sentiment, topic classification, and X pipeline risks." oninput="analyzeText()"></textarea>
+      <div id="analyzerResults" style="margin-top:16px"></div>
+    </div>
+    <div class="analyzer-cards">
+      <div class="card card-modern card-compact"><div class="card-title-modern"><svg viewBox="0 0 20 20" width="12" height="12"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M6 10h8M10 6v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> SENTIMENT</div><div id="sentimentDisplay"></div></div>
+      <div class="card card-modern card-compact"><div class="card-title-modern"><svg viewBox="0 0 20 20" width="12" height="12"><polygon points="10,2 18,16 2,16" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="10" y1="8" x2="10" y2="12" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="14" r="0.8" fill="currentColor"/></svg> PROFANITY & RISK</div><div id="profanityDisplay"></div></div>
+      <div class="card card-modern card-compact"><div class="card-title-modern"><svg viewBox="0 0 20 20" width="12" height="12"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="6" y1="6" x2="14" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> PRE-FILTER RISK</div><div id="spamRisk"></div></div>
+      <div class="card card-modern card-compact"><div class="card-title-modern"><svg viewBox="0 0 20 20" width="12" height="12"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/><polyline points="6,10 9,13 14,7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> PIPELINE TIPS</div><div id="optimizationTips"></div></div>
+    </div>
+  </div>
+</div>
+
+</div>
+<script src="engine.js"></script>
+</body>
+</html>
