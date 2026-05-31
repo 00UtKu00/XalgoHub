@@ -44,6 +44,8 @@ Beyond pure math, the system analyzes the semantic structure and psychological t
 
 AI A/B Testing (Hook Optimizer): Analyzes the first sentence (the hook). It suggests structural line breaks and punchier formatting to maximize scrolling friction (dwell time), generating alternative versions of the text.
 
+With https://github.com/xai-org/x-algorithm.git
+
 Echo Chamber (Topic Clustering): Scans for specific keywords. If it detects "BTC, ETH," it flags the Crypto cluster; if it sees "AI, code," it flags Tech. It then calculates a localized visibility boost based on current platform macro-trends.
 
 Troll & Outrage Risk Meter: Analyzes the emotional polarization of the text. Highly controversial or aggressive text drastically increases the likelihood of getting "Replies," which skyrockets algorithmic reach. However, the system visually warns the user that this simultaneously spikes the risk of mass reporting and potential shadowbanning.
