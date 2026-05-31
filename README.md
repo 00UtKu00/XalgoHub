@@ -1,40 +1,49 @@
-Sen kıdemli bir Full-Stack Yazılım Mimarı ve UI/UX Tasarımcısısın. Vibe Coding yaklaşımıyla, kullanıcıların X (Twitter) algoritmasını simüle ederek tweetlerini optimize edebileceği, oturum açma (login) gerektirmeyen, tamamen istemci taraflı (client-side) veya hafif bir Python backend (Streamlit/FastAPI) ile çalışan modern bir "X Algorithm Simulator & Growth Assistant" web sitesi inşa edeceğiz.
+1. What is the Core Purpose of the System?
+XalgoHub is a deterministic simulation sandbox built directly upon X's (formerly Twitter) open-source recommendation algorithm (the-algorithm). The live system can be accessed at xalgohub.vercel.app.
 
-Aşağıdaki mimariyi, özellikleri ve kuralları adım adım, modüler ve temiz bir kod yapısıyla oluştur.
+Its primary purpose is to allow users to test a tweet before publishing it. By using mathematical models, the system predicts how a post will interact with algorithm filters, estimates its potential reach (impressions), and identifies critical errors that could cause it to be shadowbanned or suppressed. It operates entirely client-side, requiring no user logins or paid API keys.
 
-### 1. TEKNOLOJİK ALTYAPI VE GÖRÜNÜM
-- Tek bir sayfa (Single Page Application) veya temiz sekmeli bir yapı kullan. (Python Streamlit veya Tailwind CSS'li modern bir HTML/JS yapısı tercih edilebilir).
-- Arayüz tamamen modern, karanlık mod (dark mode) odaklı, X estetiğine uygun, minimalist ve "scannable" (gözle kolay taranabilir) olmalı.
-- Kesinlikle kullanıcı kaydı, veritabanı veya API anahtarı zorunluluğu olmayacak; her şey tarayıcıda veya yerel oturumda dönecek.
+2. How the Input Panel Works (Left Side)
+When a user enters the site, they define the raw inputs that the algorithm processes:
 
-### 2. SİSTEM BİLEŞENLERİ VE GİRDİ PANELİ (SOL TARAF)
-Kullanıcı şu verileri girebilmeli:
-- **Hesap Profili Seçimi (Dropdown & Custom):** 
-  * Hazır profiller: "Yeni/Küçük Hesap (0-1K Takipçi, Düşük Güven Skoru)", "Büyümekte Olan (1K-50K Takipçi, Orta Güven)", "Influencer (50K+, Yüksek Güven)", "Onaylı/Mavi Tikli Hesap", "Bot Şüpheli/Gölge Yasaklı Hesap".
-  * Manuel Giriş: Takipçi sayısı, Takip edilen sayısı, Hesap yaşı.
-- **Tweet Editörü:** Metin alanı (Karakter sayacı ile birlikte - maks 280 veya Premium için 4000).
-- **Medya Ekleme Simülatörü:** "Sadece Metin", "Görsel/Fotoğraf", "Video", "GIF", "Anket" seçenekleri. (Video seçilirse algoritmanın kalma süresi çarpanı aktif olmalı).
-- **Zamanlama (Post Time):** Saat ve gün seçimi (Algoritmanın aktiflik/etkileşim havuzu çarpanı için).
-- **Hedef/Tahmini Etkileşimler:** Kullanıcının bu tweetten beklediği "Beğeni", "Retweet", "Yer İmleri (Bookmark)" ve "Yanıt (Reply)" sayılarını girebileceği kaydırıcılar (sliders).
+Account Profile Blueprint: The algorithm treats different accounts differently. A brand-new account has a different "trust score" compared to a verified account with 100k followers. The system applies a Base Trust Multiplier based on the selected tier. If a "bot-suspicious" account is selected, the multiplier drops near zero, crippling the tweet's reach regardless of its quality.
 
-### 3. ALGORİTMA DOSYASI YÜKLEME MODÜLÜ (DİNAMİK MOTOR)
-- Panelde bir "X Algoritma Dosyası Yükle (.txt, .py, .json)" alanı olacak.
-- **Çalışma Mantığı:** Kullanıcı bir dosya yüklediğinde, sistem metni tarayacak. Eğer dosyada `Like_Weight`, `Reply_Weight`, `Retweet_Weight`, `Video_Multiplier`, `Link_Penalty` gibi anahtar kelimeler veya katsayılar varsa bunları regex/metin analizi ile yakalayıp simülatörün arkasındaki matematiksel formülü güncelleyecek.
-- **Yedek Plan (Fallback):** Eğer dosya yüklenmezse, sistem X'in bilinen güncel resmi algoritma ağırlıklarını varsayılan (default) olarak kullanacak (Örn: Like = 1x, Retweet = 20x, Reply = 54x, Link Cezası = -20x vb.).
+Tweet Editor & Character Check: The system monitors character limits in real-time (280 for standard, 4000 for Premium). Exceeding the limit appropriate for the account tier results in algorithmic cropping or penalty margins in X's actual system.
 
-### 4. ANALİZ VE RAPORLAMA PANELİ (SAĞ TARAF)
-Kullanıcı "Simüle Et" butonuna bastığında şu çıktılar canlı ve grafiksel olarak üretilmeli:
-- **Algoritma Uygunluk Skoru (0-100):** Tweetin bütününe verilen genel puan.
-- **Tahmini Erişim Skoru (Impression Predictor):** Hesap büyüklüğü, hedef etkileşimler ve zamanlama çarpanı formüle edilerek hesaplanan tahmini gösterim aralığı.
-- **Algoritma Karnesi (Yeşil/Kırmızı Işıklar):**
-  * Örn: "🟢 Video kullanımı görünürlüğü 2x artırdı."
-  * Örn: "🔴 Dış link (Youtube/Web sitesi) tespiti! Algoritma erişimi %50 baskılayabilir."
-  * Örn: "🟡 Çok fazla hashtag kullanımı! Spam filtresine takılma riski."
+Media Attachment Simulator: A text-only tweet carries a different algorithmic weight than one with a video. Selecting "Video" activates the Dwell-Time Multiplier. Since videos force users to stay on the screen longer, the algorithm rewards this behavior with higher visibility.
 
-### 5. GELİŞMİŞ YAPAY ZEKA ÖZELLİKLERİ (EKSTRA MODÜLLER)
-- **Modül A: AI A/B Testi (Varyasyon Üretici):** Girilen tweeti analiz edip, algoritma skorunu artıracak 3 farklı alternatif metin önersin (Daha güçlü kanca cümle, daha kısa yapı vb.). (Not: Gerçek API yoksa bunu prompt mühendisliği kurallarına göre yerel şablonlarla veya mock-AI mantığıyla simüle et ya da kullanıcıya isteğe bağlı olarak kendi Gemini/OpenAI API anahtarını girebileceği geçici bir alan sun).
-- **Modül B: Yankı Odası (Topic Clustering):** Tweet metnindeki kelimelerden konuyu tahmin etsin (Örn: Teknoloji, Siyaset, Kripto) ve o kategorinin güncel algoritma trend ağırlığını göstersin.
-- **Modül C: Troll ve Linç Riski Ölçer:** Metnin duygusal tonunu (Sentiment) analiz ederek "Tartışma ve Yorum Çekme Gücü" ile "Linç/Şikayet Riski" oranını bir bar grafik olarak versin. (X algoritması tartışmalı içerikleri öne çıkarır kuralına sadık kal).
+Target Engagement Sliders: The user selects their expected number of likes, retweets, replies, and bookmarks. This acts as the mathematical brain of the simulation.
 
-### SİZDEN BEKLENTİM:
-Bu sistemi modüler parçalar halinde yazmaya başla. İlk adım olarak bana projenin temel dosya yapısını kur ve ardından **Girdi Paneli (Hesap seçimi, tweet editörü, dosya yükleme)** ile **Arka plandaki puanlama motorunu** içeren ilk çalışan prototip kodlarını ver. Her adımı açıklayarak ilerle.
+3. The Scoring Engine Logic (Algorithm Mathematics)
+When the user hits "Simulate," the backend engine calculates the output using the official, leaked weights of X's open-source algorithm. Every interaction has a specific point value:
+
+Like: The baseline metric (1 point).
+
+Retweet: Highly valuable because it broadcasts content to secondary networks (20 points).
+
+Bookmark: A strong signal of long-term value and user retention (30 points).
+
+Reply: The most valuable interaction, as X prioritizes deep conversational threads (54 points).
+
+The system multiplies the user's targeted sliders by these weights to generate a Raw Score. It then multiplies this raw score by the Account Multiplier and Media Multiplier to calculate the Estimated Impression Range.
+
+System Penalties & Heuristic Rules
+The engine also scans the text line-by-line to apply hardcoded platform rules:
+
+Outbound Link Penalty: If the tweet contains an external link (e.g., YouTube, a personal blog), the system slashes the predicted reach by 50%. X penalizes content that drives traffic away from its platform.
+
+Hashtag Filter: If the text contains more than 3 hashtags, the system flags it as "tag spam" and applies a numerical penalty. It gives a green light for the optimal 1-3 hashtag range.
+
+4. Dynamic Algorithm File Uploader
+Since X can update its algorithm weights at any time (e.g., reducing retweet value and increasing likes), this module future-proofs the system.
+
+Users can upload a raw configuration file (.json, .txt, .py) containing target variables. The system runs a Text Parser (Regex) that scans the uploaded code. The moment it detects new coefficients, it overrides the default baseline values (like the 54 points for a reply) and recalculates the entire mathematical matrix on the fly.
+
+5. Advanced Analytics Modules (Right Side)
+Beyond pure math, the system analyzes the semantic structure and psychological tone of the text:
+
+AI A/B Testing (Hook Optimizer): Analyzes the first sentence (the hook). It suggests structural line breaks and punchier formatting to maximize scrolling friction (dwell time), generating alternative versions of the text.
+
+Echo Chamber (Topic Clustering): Scans for specific keywords. If it detects "BTC, ETH," it flags the Crypto cluster; if it sees "AI, code," it flags Tech. It then calculates a localized visibility boost based on current platform macro-trends.
+
+Troll & Outrage Risk Meter: Analyzes the emotional polarization of the text. Highly controversial or aggressive text drastically increases the likelihood of getting "Replies," which skyrockets algorithmic reach. However, the system visually warns the user that this simultaneously spikes the risk of mass reporting and potential shadowbanning.
